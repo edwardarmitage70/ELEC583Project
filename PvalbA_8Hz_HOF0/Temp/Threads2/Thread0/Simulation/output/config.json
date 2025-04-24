@@ -1,0 +1,92 @@
+{
+  "network": "C:\\School Code\\ELEC_583\\Personal_Cell_recording\\PvalbA_8Hz_HOF0\\Temp\\Threads2\\Thread0\\Simulation\\circuit_config.json",
+  "simulation": "C:\\School Code\\ELEC_583\\Personal_Cell_recording\\PvalbA_8Hz_HOF0\\Temp\\Threads2\\Thread0\\Simulation\\simulation_config.json",
+  "config_path": "C:\\School Code\\ELEC_583\\Personal_Cell_recording\\PvalbA_8Hz_HOF0\\Temp\\Threads2\\Thread0\\Simulation\\config.json",
+  "config_dir": "C:\\School Code\\ELEC_583\\Personal_Cell_recording\\PvalbA_8Hz_HOF0\\Temp\\Threads2\\Thread0\\Simulation",
+  "components": {
+    "biophysical_neuron_models_dir": "C:\\School Code\\ELEC_583\\Personal_Cell_recording\\PvalbA_8Hz_HOF0\\Temp\\Threads2\\Thread0\\Simulation\\components\\biophysical_neuron_models",
+    "filter_models_dir": "C:\\School Code\\ELEC_583\\Personal_Cell_recording\\PvalbA_8Hz_HOF0\\Temp\\Threads2\\Thread0\\Simulation\\components\\filter_models",
+    "mechanisms_dir": "C:\\School Code\\ELEC_583\\Personal_Cell_recording\\PvalbA_8Hz_HOF0\\Temp\\Threads2\\Thread0\\Simulation\\components\\mechanisms",
+    "morphologies_dir": "C:\\School Code\\ELEC_583\\Personal_Cell_recording\\PvalbA_8Hz_HOF0\\Temp\\Threads2\\Thread0\\Simulation\\components\\morphologies",
+    "point_neuron_models_dir": "C:\\School Code\\ELEC_583\\Personal_Cell_recording\\PvalbA_8Hz_HOF0\\Temp\\Threads2\\Thread0\\Simulation\\components\\point_neuron_models",
+    "synaptic_models_dir": "C:\\School Code\\ELEC_583\\Personal_Cell_recording\\PvalbA_8Hz_HOF0\\Temp\\Threads2\\Thread0\\Simulation\\components\\synaptic_models",
+    "templates_dir": "C:\\School Code\\ELEC_583\\Personal_Cell_recording\\PvalbA_8Hz_HOF0\\Temp\\Threads2\\Thread0\\Simulation\\components\\templates",
+    "__pycache___dir": "C:\\School Code\\ELEC_583\\Personal_Cell_recording\\PvalbA_8Hz_HOF0\\Temp\\Threads2\\Thread0\\Simulation\\components\\__pycache__"
+  },
+  "networks": {
+    "nodes": [
+      {
+        "nodes_file": "C:\\School Code\\ELEC_583\\Personal_Cell_recording\\PvalbA_8Hz_HOF0\\Temp\\Threads2\\Thread0\\Model\\single_neuron_nodes.h5",
+        "node_types_file": "C:\\School Code\\ELEC_583\\Personal_Cell_recording\\PvalbA_8Hz_HOF0\\Temp\\Threads2\\Thread0\\Model\\single_neuron_node_types.csv"
+      }
+    ],
+    "edges": [],
+    "gap_juncs": []
+  },
+  "target_simulator": "NEURON",
+  "run": {
+    "tstart": 0.0,
+    "tstop": 9900,
+    "dt": 0.1,
+    "dL": 20.0,
+    "spike_threshold": -15.0,
+    "nsteps_block": 5000
+  },
+  "conditions": {
+    "celsius": 34.0,
+    "v_init": -80.0
+  },
+  "inputs": {
+    "current_clamp": {
+      "input_type": "current_clamp",
+      "module": "IClamp",
+      "node_set": "all",
+      "gids": "all",
+      "amp": 0.63,
+      "delay": 100,
+      "duration": 9900
+    },
+    "extra_stim": {
+      "input_type": "lfp",
+      "module": "xstim",
+      "node_set": "all",
+      "positions_file": "C:\\School Code\\ELEC_583\\Personal_Cell_recording\\PvalbA_8Hz_HOF0\\Temp\\Threads2\\Thread0\\Simulation/inputs/xstim_electrode.csv",
+      "waveform": {
+        "shape": "sin",
+        "del": 100,
+        "amp": 0,
+        "freq": 140,
+        "offset": -0.0,
+        "dur": 9900
+      }
+    }
+  },
+  "output": {
+    "log_file": "C:\\School Code\\ELEC_583\\Personal_Cell_recording\\PvalbA_8Hz_HOF0\\Temp\\Threads2\\Thread0\\Simulation\\output\\log.txt",
+    "output_dir": "C:\\School Code\\ELEC_583\\Personal_Cell_recording\\PvalbA_8Hz_HOF0\\Temp\\Threads2\\Thread0\\Simulation\\output",
+    "spikes_file": "C:\\School Code\\ELEC_583\\Personal_Cell_recording\\PvalbA_8Hz_HOF0\\Temp\\Threads2\\Thread0\\Simulation\\output\\spikes.h5"
+  },
+  "reports": {
+    "v_report": {
+      "variable_name": "v",
+      "cells": "all",
+      "module": "membrane_report",
+      "sections": "soma"
+    },
+    "v_dend": {
+      "variable_name": "v",
+      "cells": "all",
+      "module": "membrane_report",
+      "sections": "dend"
+    }
+  },
+  "node_sets_file": "C:\\School Code\\ELEC_583\\Personal_Cell_recording\\PvalbA_8Hz_HOF0\\Temp\\Threads2\\Thread0\\Simulation\\node_sets.json",
+  "node_sets": {
+    "biophysical_nodes": {
+      "model_type": "biophysical"
+    },
+    "point_nodes": {
+      "model_type": "point_process"
+    }
+  }
+}
