@@ -115,14 +115,6 @@ python 02_Gather_Data.py 630 0 newneuron
 python Plots/04_Plot_results.py
 ```
 
----
-
-## 📃 Biological Context
-
-This simulation explores how neuron types (e.g., pyramidal, pvalb) respond to alternating electric fields. This is relevant for studying effects of techniques like transcranial electric stimulation. Outputs include spike-phase histograms and entrainment metrics based on circular statistics.
-
----
-
 ## 📘 References
 
 - NEURON: https://neuron.yale.edu/neuron/
