@@ -6,7 +6,7 @@
  
  ---
  
- ## 📁 Project Structure
+ ## Project Structure
  
  ```
  PvalbA_8Hz_HOF0/
@@ -30,7 +30,7 @@
  
  ---
  
- ## 🚀 How to Run the Simulation
+ ## How to Run the Simulation
  
  ### 1. **Set Up Your Environment**
  Install required packages:
@@ -71,7 +71,7 @@
  
  ---
  
- ## 📊 Output
+ ## Output
  
  - **Rose Plots** showing spike-phase histograms and vector strength
  - **CSV Results** with spike rates and entrainment metrics
@@ -79,7 +79,7 @@
  
  ---
  
- ## 🔠 Importing a New Neuron
+ ## Importing a New Neuron
  
  ### 1. **Add the Morphology**
  Place your new `.swc` file into:
@@ -117,16 +117,82 @@
  ```
  
  ---
+
+##  Network Stimulations (NetPyNE-based)
+
+This section describes an alternate network-based simulation approach using **NetPyNE**.
+##  Network Stimulation Structure
+
+```
+celltype_brainstim_insilico-main/
+├── 1_Simulations_across_hall_of_fame_models/
+│   └── PvalbA_8Hz_HOF0/
+│       ├── netpyne_es_network_take3.py        # Main simulation script
+│       └── required_files/
+│           └── neuronal_model/
+│               └── modfiles/
+│                   ├── extracellular_field.mod  # NMODL file for external E-field mechanism
+│                   ├── extracellular_field.c    # Generated C file
+│                   ├── extracellular_field.o    # Compiled object file
+│                   └── nrnmech.dll              # Compiled mechanisms (Windows only)
+```
+
+---
+###  Requirements
+- Python (3.7–3.12)
+- NEURON with Python support
+- NetPyNE
+- NMODL compiler (`mknrndll` on Windows or `nrnivmodl` on Unix/Linux)
+
+### Setup Instructions
+1. **Set up the Python environment**
+```bash
+conda create -n brainenv python=3.10
+conda activate brainenv
+pip install neuron netpyne
+```
+
+2. **Compile mod files**
+Navigate to the `modfiles` directory and compile:
+
+**Windows:**
+```bash
+cd required_files/neuronal_model/modfiles
+mknrndll
+```
+**Linux/macOS:**
+```bash
+cd required_files/neuronal_model/modfiles
+nrnivmodl
+```
+
+3. **Run the simulation**
+From the root of the repo:
+```bash
+python netpyne_es_network_take3.py
+```
+
+### Key Files
+- `netpyne_es_network_take3.py`: main NetPyNE simulation script
+- `extracellular_field.mod`: NMODL mechanism for extracellular stimulation
+- `nrnmech.dll`: compiled mechanisms for NEURON
+
+### Outputs
+- Spike raster plots
+- Voltage traces
+- Optional: phase-locking metrics if analysis is included
+
+### Notes
+- Always compile `.mod` files before running the simulation.
+- Ensure compatibility between Python, NEURON, and NetPyNE versions.
+
+---
+
+## References
+
+- NEURON: https://neuron.yale.edu/neuron/
+- BMTK: https://alleninstitute.github.io/bmtk/
+- NetPyNE: https://netpyne.org
+- eFEL: https://github.com/BlueBrain/eFEL
  
- ## 📃 Biological Context
- 
- This simulation explores how neuron types (e.g., pyramidal, pvalb) respond to alternating electric fields. This is relevant for studying effects of techniques like transcranial electric stimulation. Outputs include spike-phase histograms and entrainment metrics based on circular statistics.
- 
- ---
- 
- ## 📘 References
- 
- - NEURON: https://neuron.yale.edu/neuron/
- - BMTK: https://alleninstitute.github.io/bmtk/
- - eFEL: https://github.com/BlueBrain/eFEL
- 
+
