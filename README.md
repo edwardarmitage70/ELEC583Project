@@ -198,5 +198,6 @@ python netpyne_es_network_take3.py
 - BMTK: https://alleninstitute.github.io/bmtk/
 - NetPyNE: https://netpyne.org
 - eFEL: https://github.com/BlueBrain/eFEL
+- Neuron Paper Code: https://github.com/anastassiou-team/celltype_brainstim_invitro
  
 
