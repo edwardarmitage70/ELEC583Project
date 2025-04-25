@@ -2,7 +2,11 @@
 
  ELEC 583 Project
  
- This repository simulates single-neuron responses to electric field stimulation using NEURON and BMTK. It includes morphology preprocessing, parameter setup, simulation execution, and spike-phase analysis via rose plots to evaluate electric field entrainment.
+ This repository simulates single-neuron responses to electric field stimulation using NEURON and BMTK. It includes morphology preprocessing, parameter setup, simulation execution, and spike-phase analysis via rose plots to evaluate electric field entrainment. and is adapted from the code created by: Soo Yeun Lee, Konstantinos Kozalakis,
+Fahimeh Baftizadeh,
+Luke Campagnola, Tim Jarsky,
+Christof Koch, Costas A. Anastassiou In the paper: Cell-class-specific electric field entrainment of
+neural activity
  
  ---
  
